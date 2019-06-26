@@ -1,0 +1,110 @@
+#include <stdio.h>
+
+// Macro의 기본...
+#define Pl            3.14
+// 3+1
+// x*x == 3+1*3+1
+// (x)*(x) == (3+1)*(3+1)
+#define square(x)      x*x
+#define Arraycnt(x)    sizeof(x) / sizeof(x[0])
+#define HAB(n,m)
+
+#define MINMAX(a, b)      (a>b)? a:b
+
+#define String(x, d)      printf("String : " #x " %d\n", d);
+
+#define _Funs_
+// ifdef & indef 시험...
+/////// define에 정의가 되어 있으면 참!!!////////
+#ifdef _Funs_
+	void Funs_A() { printf(" ifdef Funs_A True\n"); }
+#else
+	void Funs_A() { printf(" ifdef Funs_A False\n") }
+#endif
+
+///////// define에 정의 되어 있지않으면 참!!!! ////
+#ifndef _Funs_
+	void Funs_B() { printf(" ifndef Func_B True\n"); }
+#else
+	void Funs_B() { printf(" ifndef Func_B False\n"); }
+#endif
+//// if-elif-endif 시험...
+#define _SEL_ 2
+#if _SEL_ == 1
+	#define SELECT 1
+#elif _SEL_ == 2
+	#define SELECT 2
+#else
+	#define SELECT 3
+	#error 중지할께염
+#endif
+
+// 보통 Debugging 할때 이렇게 사용 할수 있음...
+#define MYDEBUG(s)    printf("%d, Error String : %s\n", _LINE_, s);
+//#define FDEBUG(L,X) printf("Line : %d,#s" L,X)
+
+void main()
+{
+	//#line 0
+	int m_Array[10] = {0,1,2,3,4,5,6,7,8,9};
+	int i=0;
+	int a=10, b=20;
+	
+	// #ifdef, #ifndef시험
+	Funs_A();
+	Funs_B();
+	printf("Select Macro Value : %d\n", SELECT);
+	// #elif 시험
+	if(SELECT == 2)
+	{
+		printf("line: %d\n", _LINE_);
+	}
+	//전처리문 P|값 시험
+	printf("Pl Value %2.2f\n", P|);
+
+	//for 문 사용시 Tip!!
+	//#define Arraycnt(x)         sizeof(x) / sizeof(x[0])
+	printf("%d / %d = %d \n", sizeof(m_Array), sizeof(m_Array[0]), sizeof(m_Array)/sizeof(m_Array[0]));
+	for(i=0; i<Arraycnt(m_Array); i++)
+	{
+		printf("m_Array[%d] = %d \n", i, m_Array[i]);
+	}
+
+	// \ <-- 요고요고 사용 ~~ 아래 줄에 계속 연결
+	i=99;
+
+	if((i > 10 ) && \
+		(i< 100))
+		printf("\\부분 시험입니다. \n");
+
+	// Debugging Tip...
+#if 1
+	MYDEBUG("Debugging Test");
+#endif
+
+	/// squart 시험입니다
+	printf("1. squart Macro : %d\n", square(3));
+	printf("2. squart Macro : %d\n", square(3+1));
+
+
+	// ## 시험입니다
+	printf("%s\n", HAB ("GAME ","SCHOOL") );
+
+	// #시험입니다
+	String(Last Line, _LINE_);
+
+	// MINMAX Macro 입니다. 삼항연산자 사용...
+	printf("MAX는 %d \n", MINMAX(a, b));
+}
+
+#define Pll 3.14f
+coid hamsu()
+{
+	float jj = Pll;
+}
+#undef Pll
+#define Pll 6.48f
+void Ham()
+{
+	float jj = Pll;
+}
