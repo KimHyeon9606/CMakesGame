@@ -1,3 +1,3 @@
 # CMakesGame
 # My C making Game File
-##HYEON
+# C로 만든게임
