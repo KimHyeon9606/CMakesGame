@@ -1,0 +1,219 @@
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+
+/////// Macro 선언부분////////
+// 컴파일이 되기전엔 먼저 선행되기 때문에 선행처리기라고도 불린다.
+// 세미콜론은 없다.
+#define BUF_Y  20
+#define BUF_X  50
+#define PLY_X  3
+#define ZERO   0
+
+#define PLYBULLET_DIRECTION		-1
+#define ENEBULLET_DIRECTION		1
+
+#define BULLET 30
+#define LIVE	1
+#define DIE		0
+
+/////// 전역변수 선언///////
+// 전역 변수는 현재 파일내에서 접근(읽고쓰기)가 된다.
+// 1. Depth Buffer를 하나를 만든다. 현실세계에서 도화지라고 생각하면 된다.
+char m_DepthBuf[BUF_Y][BUF_X]; // 이중배열로 선언하였다.
+
+//2. Player관련 Object임 (Object, X, Y축)
+char m_PlayerObj[3] = {'>','=','<'};
+int PlayerY, PlayerX;
+
+//3. Bullet 관련 Object
+char m_BulletObj[BULLET];
+int  m_BulletX[BULLET], m_BulletY[BULLET];
+int	 m_BulletLive[BULLET];
+int  m_BulletDirection[BULLET];
+int  m_BulletCnt;
+
+char bulletchar = 'A'-1;
+
+//////////함수 원형 선언 ////////
+// 함수원형은 main 함수 위에 혹은 *.h file에 있다는걸 명심~!!
+
+void Initail();      //초기화 함수를 나타낸다. 변수 초기화
+void Render();       //모니터에 도화지 (m_DepthBuf)에 그려진 그림(object)를
+					 // 그리는 함수를 나타낸다
+void DepthBufClear();
+char KetInput();				// KeyBoard에서 /up/Down/Left/Righr 및 Space Key등을 입력 받는다.
+void PlayerMove();				// Player의 움직임을 DepthBuffer에 적용하는 함수
+void gotoxy(int x, int y);		// 커서를 옮기는 함수임.
+
+
+void BulletMove();
+void CreateBullet(int _X, int _Y, char _BulletObj, int _Direction);
+
+void main()
+{
+	Initail();   // Initial함수는 모든 데이터(변수)를 초기화 시키는 함수이다.
+	while(1)
+	{
+		DepthBufClear();
+		if(KetInput() == 'q') break;
+		PlayerMove();
+		BulletMove();
+		Render();
+		Sleep(10);
+	}
+}
+
+void Initail()
+{
+	// 배열 초기화 부분입니다...
+	memset(m_DepthBuf,		' ', sizeof(m_DepthBuf)); // 0x20 SPACE로 m_DepthBuf의 내용을 채운다
+	memset(m_BulletObj,		  0, sizeof(m_BulletObj));
+	memset(m_BulletX,		  0, sizeof(m_BulletX));
+	memset(m_BulletY,		  0, sizeof(m_BulletY));
+	memset(m_BulletLive,      0, sizeof(m_BulletLive));
+	memset(m_BulletDirection, 0, sizeof(m_BulletDirection));
+
+	PlayerX = 10;
+	PlayerY = 10;
+
+	m_BulletCnt = 0;
+}
+
+void DepthBufClear()
+{
+	memset(m_DepthBuf, ' ', sizeof(m_DepthBuf)); //Clear시킨다.
+}
+void Render()
+{
+	int y, x;
+	gotoxy(0,0);
+	for(y=0; y<BUF_Y; y++)
+	{
+		for(x=0; x<BUF_X; x++)
+		{
+			printf("%c", m_DepthBuf[y][x]);
+		}
+		printf("\n");
+	}
+}
+
+#define _IFELSE_
+
+char KeyInput()
+{
+#ifndef _IFELSE_
+	if(GetAsyncKeyState(VK_UP) & 0x8000)
+	{
+		if(PlayerY)   PlayerY--;
+	}
+	else if(GetAsyncKeyState(VK_DOWN) & 0x8000)
+	{
+		if(PlayerY < BUF_Y-1) PlayerY++;
+	}
+	else if(GetAsyncKeyState(VK_LEFT) & 0x8000)
+	{
+		if(PlayerX)   PlayerX--;
+	}
+	else if(GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	{
+		if(PlayerX < BUF_X - PLY_X) PlayerX++;
+	}
+	else if(GetAsyncKeyState(VK_SPACE) & 0x8000)
+	{
+		CreateBullet(PlayerX+1, PlayerY, (((bulletchar >= 'A') && (bulletchar < 'Z')) ? bulletchar+=1:bulletchar ='A'), PLBULLET_DIRECTION);
+		//CreateBullet(PlayerX+1, PlayerY, 'l', -1);//PLYBULLET_DIRECTION);
+	}
+	else if(GetAsyncKeyState('Q') & 0x8000)
+	{
+		return 'q';
+	}
+#else
+	if(GetAsyncKeyState(VK_UP) & 0x8000)
+	{
+		if(PlayerY)  PlayerY--;
+	}
+	if(GetAsyncKeyState(VK_DOWN) & 0x8000)
+	{
+		if(PlayerY < BUF_Y-1) PlayerY++;
+	}
+	if(GetAsyncKeyState(VK_LEFT) & 0x8000)
+	{
+		if(PlayerX) PlayerX--;
+	}
+	if(GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	{
+		if(PlayerX < BUF_X - PLY_X) PlayerX++;
+	}
+	if(GetAsyncKeyState(VK_SPACE) & 0x8000)
+	{
+		CreateBullet(PlayerX+1, PlayerY, (((bulletchar >= 'A') && (bulletchar < 'Z')) ? bulletchar+=1:bulletchar ='A'), PLYBULLET_DIRECTION);
+		//CreateBullet(PlayerX+1, PlayerY, 'l', -1);//PLYBULLET_DIRECTION);
+	}
+	if(GetAsyncKeyState('Q') & 0x8000)
+	{
+		return 'q';
+	}
+#endif
+	return true;
+
+}
+//////// Player관련 함수 정의 //////////
+void PlayerMove()
+{
+	int x;
+
+	for(x=0; x<PLY_X; x++)
+	{
+		m_DepthBuf[PlayerY][PlayerX+x] = m_PlayerObj[x];
+	}
+}
+
+////////Bullet 관련 함수 정의 /////////
+void CreateBullet(int _X, int _Y, char _BulletObj, int _Direction)
+{
+	if(m_BulletCnt < BULLET-1) m_BulletCnt += 1;
+	else					   m_BulletCnt = 0;
+
+	if(_Y == 0)   return;
+
+	m_BulletObj[m_BulletCnt] = _BulletObj;
+	m_BulletLive[m_BulletCnt] = LIVE;
+	m_BulletX[m_BulletCnt] = _X;
+	m_BulletY[m_BulletCnt] = _Y;
+	m_BulletDirection[m_BulletCnt] = _Direction;
+}
+void BulletMove()
+{
+	int i;
+	for(i=0; i<BULLET; i++)
+	{
+		if(m_BulletLive[i] != LIVE) continue;
+
+		m_BulletY[i] += m_BulletDirection[i];
+		m_DepthBuf[m_BulletY[i]][m_BulletX[i]]= m_BulletObj[i];
+
+		if((m_BulletY[i] == 0) || (m_BulletY[i] > BUF_Y-1))
+		{
+			m_BulletLive[i] = DIE;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void gotoxy(int x, int y) // 화면의 커서포인트를 옮길때 사용하는 함수임.
+{
+	COORD _XY = {x,y};
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), _XY);
+}
+
+///////////////////////////////
+///
+// struct Position
+// {
+//       int x;
+//       int y;
+//       char
+//
+// };
+//
