@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+void main(int argc, char *argv[]) {
+	
+	int i,Hab,mu,sw=1; 
+	char  x = x;
+	printf("%c",x);
+	
+	
+/*	for(i=1;i<=100;i++)
+	{
+	
+	if(i % 2)
+	Hol+=i;
+	else
+	Jak+=i;
+ 	}
+ 	
+ 	
+ 	for(i=1;i<=100;i++)
+	{
+	
+	if(sw)
+	{
+	Hol+=i;
+	sw=0;
+}	else
+	{
+	Jak+=i;
+	sw=1;
+}
+
+ 	}*/
+ 	// 50회전 방법
+	 for(i=1;i<=100;i++)
+			{
+			if(i%2==0) 
+			{
+			Hab-=i;
+			printf("%d",i);
+			if(i==100)
+			printf("=");
+			else
+			printf("+");
+		}
+	else
+	{
+	mu+=i;
+	printf("%d",i);
+		if(i==100)
+			printf("=");
+		else
+			printf("-");
+}
+	
+	
+}
+printf("%d\n",Hab+mu-1);
+}
+	
