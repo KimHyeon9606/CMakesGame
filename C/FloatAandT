@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+/*	float S[7]={7.5f,3.8f,9.9f,9.8f,9.2f,8.9f,9.0f} ;
+	int i;
+	float Min,Max,T , A ;
+	
+	
+	T = S[0];
+	Max=S[0];
+	Min=S[0];
+	
+	for (i=1;i<=6;i++)
+	{
+		if(Max< S[i] ) Max=S[i];
+		if(Min> S[i] ) Min=S[i];
+		T+=S[i];
+		
+	}
+	T=T-Max-Min;
+	A=T/5.0;
+	printf("평균=%f\n",A);
+	
+*/	
+	
+/*	float S[7];
+	printf("7개의 숫자를 입력해주세요");
+	int i,j;
+	float Min,Max,T,A;
+	for (i=1; i<=7; i++)
+	{
+	
+		scanf("%s",&S[i]);
+	}
+
+	for(j=1; j<=7; j++)
+{
+
+
+		if(Max< S[j] ) Max=S[j];
+		if(Min> S[j] ) Min=S[j];
+		T+=S[j];
+	 } 
+	 
+	 printf("최댓: %f\n 최소값: %f\n",Max,Min);
+	 T=T-Max-Min;
+	 A=T/5.0;
+	 printf("평균=%f\n 총합의 값=%f\n",T,A);
+*/
+
+int A,B,C;
+
+A=10000;
+B=10000;
+
+
+C=A*B;
+
+printf("%d",C); 
+
+
+	return 0;
+}
