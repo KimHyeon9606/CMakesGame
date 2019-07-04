@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+
+void main(int argc, char *argv[]) {
+
+int i;
+printf("대문자");
+printf("\n");
+for(i=0; i<=25;i++) //대문자 
+{
+	printf("%3c",65+i);
+}
+	printf("\n");
+	printf("ASCII");
+	printf("\n");
+	for(i=0; i<=25;i++)//10진수 
+{
+	printf("%3d",65+i);
+}
+printf("\n");
+printf("Hexacode");
+	printf("\n");
+	for(i=0; i<=25;i++)//16진수 
+{
+	printf("%3x",65+i);
+}
+printf("\n\n");
+	printf("\n");
+	printf("소문자");
+	printf("\n");
+	for(i=0; i<=25;i++)//소문자 
+{
+	printf("%3c",97+i);
+}
+printf("\n");
+	printf("ASCII");
+	printf("\n");
+	for(i=0; i<=25;i++)//10진수 
+{
+	printf("%3d",97+i);
+}
+printf("\n");
+printf("Hexacode");
+	printf("\n");
+	for(i=0; i<=25;i++)//16진수 
+{
+	printf("%3x",97+i);
+}
+printf("\n\n"); 
+printf("아라비안 숫자");
+printf("\n");
+	for(i=0; i<=9;i++)//아라비안 숫자 
+{
+	printf("%3c",48+i);
+}
+printf("\n");
+	printf("ASCII");
+	printf("\n");
+	for(i=0; i<=9;i++)//10진수 
+{
+	printf("%3d",48+i);
+}
+printf("\n");
+printf("Hexacode");
+	printf("\n");
+	for(i=0; i<=9;i++)//16진수 
+{
+	printf("%3x",48+i);
+}
+
+	
+	return 0;
+}
