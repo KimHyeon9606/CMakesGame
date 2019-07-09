@@ -1,0 +1,232 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+
+
+/*char N[50],HA;
+
+
+int j1=0,j2=0,j3=0,Hab;
+float Aver;
+scanf_s("%s",N,sizeof(N));
+
+scanf("%d",&j1);
+scanf("%d",&j2);
+scanf("%d",&j3);
+
+Hab=j1+j2+j3;
+
+Aver =(j1+j2+j3)/3;
+
+
+if(Aver>=100)
+HA='A';
+else if(Aver>=90)
+HA='B';
+else if(Aver>=80)
+HA='C';
+else if(Aver>=70)
+HA='D';
+else if(Aver>=60)
+printf("그런점수는 없습니다or 낙제점 입니다..");
+HA='k';
+
+
+
+
+
+
+printf("%s 님의 총점은 %d이고 평균은 %f 이며 학점은 %c입니다.",N,Hab,Aver,HA);
+*/
+
+
+
+/*const int su = 3;
+int k,e,m,t;
+float a;
+char n[10],g;
+scanf_s("%s",n,sizeof(n));
+scanf_s("%d%d%d",&k,&e,&m);
+t= k+e+m;
+a= t/su;
+if (a>90) g='A';
+else if (a>=80) g='B';
+else if (a>=70) g='C';
+else if (a>=60) g='D';
+else g='F';
+printf("이름:%s 총점:%d 평균:%f 학점: %c",n,t,a,g);
+*/
+
+printf("------ ------------------------------------------------------\n"); 
+printf("------ ------------------------------------------------------\n"); 
+printf("------ ------------------------------------------------------\n"); 
+printf("-----7번 반복문 프로그램 실행 -----------\n");
+printf("-----8번 MinMax 구하는 프로그램 ---------\n");
+printf("-----9번 학점 구하는 프로그램 -----------\n");
+printf("------ ------------------------------------------------------\n");
+printf("------ ------------------------------------------------------\n");
+printf("------ ------------------------------------------------------\n");
+printf(":");
+int Han;
+
+scanf ("%d",&Han);
+
+switch(Han)
+{
+	
+	case 0:
+	printf("틀렸어 9번뿐이야"); 
+	break;
+
+	case 1:
+	printf("틀림 ㅋ");
+	break;
+
+	case 2:
+	printf("틀림 ㅋ");
+	break;
+
+	case 3:
+	printf("틀림 ㅋ");
+	break;
+
+	case 4:
+	printf("틀림 ㅋ");
+	break;
+	
+	case 5:
+	printf("틀림 ㅋ");
+	break;
+
+	case 6:
+	printf("틀림 ㅋ");
+	break;
+	
+	case 7:
+	printf("돌리는 프로그램 실행 \n");
+	Bak();
+	break;
+	
+	
+	case 8:
+	printf("Min Max 프로그램 실행 \n");
+	MinMax();
+	break;
+	
+	case 9:
+		
+	
+	printf("평균 구하는 프로그램 실행 \n");
+	Hanbub() ;
+	break;
+
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	return 0;
+}
+
+
+Bak()
+{
+		float c ;
+	scanf("%f",&c);
+	float i;
+	int a = 0;
+	
+	for(i=1.0;i<=9.0;i=i+1.0){
+	a++;
+	
+if(a%2)
+	c -= i/(i+1.0);
+
+else
+	c += i/(i+1.0);
+
+}
+printf("%f",c);
+
+}
+
+MinMax()
+{
+	
+		int Max,i,Min;
+
+int d[10] = {};
+for( i=0; i<10; i++)
+{
+	printf("정수값입력 :  ");
+	scanf("%d",&d[i]);
+}
+
+Min = d[0];
+Max = d[0];
+	
+	for (i=1;i<10; i++)
+	{
+	
+	
+			if(d[i] > Max)
+				Max = d[i];
+			if(d[i] < Min)
+				Min = d[i];		
+		
+		
+		}
+		
+		
+		printf_s("10개중 최대값은 %d 입니다 \n",Max);
+		printf_s("10개 중 최소값은 %d 입니다\n",Min);
+		
+	
+}
+
+
+
+
+
+Hanbub() 
+{
+	
+
+	int k,e,m,t;
+float a,a2;
+char n[10],g;
+const int su = 3;
+printf("자신의 이름을  입력하세요: \n ");
+scanf_s("%s",n,sizeof(n));
+printf("자신의 점수를 입력하세요 1과목: \n");
+scanf_s("%d",&k);
+printf("자신의 점수를 입력하세요 2과목: \n");
+scanf_s("%d",&e);
+printf("자신의 점수를 입력하세요 3과목: \n");
+scanf_s("%d",&m);
+
+
+t= k+e+m;
+a= t/(float)su;
+if (a>90) g='A';
+else if (a>=80) g='B';
+else if (a>=70) g='C';
+else if (a>=60) g='D';
+else g='F';
+a=(int)(a*100+0.5)/100.0;
+printf("이름:%s 총점:%d 평균:%f 학점: %c",n,t,a,g);
+}
