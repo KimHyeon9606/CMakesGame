@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+	
+	int air_shot,air_power,air_Tem,air_remote,air;
+	
+	printf("에어컨을 실행합니다. 1번 가동\n");
+	printf("에어컨을 실행합니다. 2번 끄기\n");
+	printf("에어컨을 실행합니다. 3번 온도올림\n");
+	printf("에어컨을 실행합니다. 4번 온도내림\n");
+	printf("에어컨을 실행합니다. 5번 현재온도 보기\n");
+		
+		
+		
+		air_power=26;
+		air_Tem=26;
+	
+	do{
+	
+	scanf("%d",&air_remote);
+	
+	switch(air_remote)
+	{
+		
+	
+	
+		case 1: 
+		printf("에어컨을 가동합니다.\n");
+		air=air_shot+1;
+		break;
+		
+		case 2:
+		printf("에어컨을 끕니다. \n");
+		air=air_shot+2;
+		break;
+		
+		case 3: 
+			printf("희망 온도올림\n");
+		air_power=air_power+1;
+			printf("현재 희망온도는 %d 도입니다.\n",air_power);
+			if(air_power >=27)
+			{air_power=air_power-1;
+			printf("더이상 온도를 올릴수없습니다.");
+			}
+		break;
+		
+		case 4:
+			printf("희망 온도내림\n");
+		air_power=air_power-1;
+			printf("희망온도는 현재 %d  도입니다 \n",air_power);
+		if(air_power <= 18)
+		{
+			air_power=air_power+1;
+			printf("더이상 온도를 내릴수없습니다.");
+		 } 
+		break;
+		
+		case 5:
+			printf("현재온도 : %d \n",air_Tem);
+		break;
+	
+	
+	
+	}
+		
+		if(air_remote == 2)
+		break;
+	}while(1);
+	
+printf("에어컨이 꺼졌습니다.");
+	
+	return 0;
+}
