@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h> 
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+	int si,ra,pa,player;
+	int enemy ;
+	
+	srand((unsigned)(time(NULL)));
+	enemy=rand() %3 +1 ;
+	
+
+
+	
+	printf("가위 바위보 게임입니다 무엇을 내시겠습니까? (1.가위 2.바위 3.보 4.게임종료)\n");
+	scanf("%d",&player);
+	
+
+	
+	
+	switch(player)
+	{
+	
+	
+	case 1:
+		printf("가위를 내셨습니다.\n");
+		if(player==1 && enemy==1)
+		printf("비기셨습니다.");
+		if(player==1 && enemy==2)
+		printf("졌습니다 ㅠ..");
+		if(player==1 && enemy==3)
+		printf("이겼습니다.!!");
+		break; 
+		
+	case 2:
+		printf("바위를 내셨습니다.\n");
+		if(player==2 && enemy==1)
+		printf("이기셨습니다.");
+		if(player==2 && enemy==2)
+		printf("비기셨습니다.");
+		if(player==2 && enemy==3)
+		printf("졌습니다.");
+		break;
+	
+	case 3: 
+	
+			printf("보를 내셨습니다.\n");
+		if(player==3 && enemy==1)
+		printf("졌습니다 .. ㅠ.");
+		if(player==3 && enemy==2)
+		printf("이겼습니다.!!.");
+		if(player==3 && enemy==3)
+		printf("비기셨습니다.");
+		break;
+	
+	case 4:
+		printf("게임종료");
+	
+		break;
+}
+
+	
+	
+	return 0;
+}
