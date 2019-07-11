@@ -1,0 +1,219 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) 
+{
+
+{
+	
+	int Player,enemy,Dice,Map,stacpl1,Playerdice,enemydice;
+Player = 0;
+printf("---------말판주사위 게임입니다! ~ (주사위를던진다 1 한턴쉰다 2).-------- \n");
+srand((unsigned)(time(NULL)));
+do{
+
+
+	scanf("%d",&stacpl1);
+	
+	
+	switch(stacpl1){
+	case 1:
+	printf("★★★★주사위를던진다★★★★\n");
+	Playerdice = rand () % 6+1;
+	printf("★★★★: %d 의숫자가 나왔습니다:  %d 숫자만큼 이동합니다.★★★★\n",Playerdice,Playerdice);
+	Player += Playerdice;
+	break;
+	case 2:
+	printf(" ★★★★한턴을 쉬어버린다.★★★★\n");
+	break;
+}
+
+printf("---상대방은 주사위를던졌습니다---- \n");
+enemydice =  rand () % 6+1;
+printf("---상대방의 주사위 눈금:  %d 입니다\n ",enemydice); 
+enemy += enemydice;
+
+
+if(Player == 1)
+
+{
+
+printf("나의 현재위치 : %d 칸입니다.\n",Player);
+
+printf("1번째 칸으로 이동합니다.\n");
+}
+if(Player == 2)
+
+{
+
+printf("나의 현재위치:  %d 칸입니다.\n",Player);
+printf("2번째 칸으로 이동합니다.\n");
+}
+if(Player == 3)
+
+{
+
+printf("나의 현재위치 : %d 칸입니다.\n",Player);
+printf("3번째 칸으로 이동합니다.\n");
+}
+if(Player == 4)
+{
+
+printf("나의 4번째 칸으로 이동합니다.\n");
+printf("현재위치:  %d 칸입니다.\n",Player);
+}
+if(Player == 5)
+{
+
+printf("나의 5번째 칸으로 이동합니다.\n");
+printf("현재위치:  %d 칸입니다.\n",Player);
+}
+if(Player == 6)
+{
+
+printf("나의 6번째 칸으로 이동합니다.\n");
+printf("현재위치:  %d 칸입니다.\n",Player);
+}
+
+if(Player == 7)
+{
+printf("나의 7번째 칸으로 이동합니다.\n");
+printf("현재위치:  %d 칸입니다.\n",Player);
+
+}
+
+if(Player == 8)
+{
+	printf("나의 8번째 칸으로 이동합니다.\n");
+printf("현재위치:  %d 칸입니다.\n",Player);
+}
+if(Player == 9)
+{
+printf("나의 9번째 칸으로 이동합니다.\n");
+printf("현재위치:  %d 칸입니다.\n",Player);
+
+}
+if(Player ==10)
+{printf("나의 현재위치:  %d 칸입니다.\n",Player);
+
+printf(": %d번째 칸으로 이동합니다.\n",Player);
+}
+
+
+if(enemy == 1)
+
+
+
+{printf("적의 위치:  %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+}
+if(enemy == 2)
+
+
+
+{printf("적의 위치 : %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+}
+if(enemy == 3)
+
+
+
+{printf("적의 위치:  %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+}
+if(enemy == 4)
+
+
+{printf("적의 위치 : %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+}
+if(enemy == 5)
+
+
+{printf("적의 위치 : %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+}
+if(enemy == 6)
+
+
+{printf("적의 위치:  %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+}
+
+if(enemy == 7)
+{printf("적의 위치 : %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+
+}
+
+if(enemy == 8)
+
+{printf("적의 위치:  %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+}
+if(enemy == 9)
+
+{printf("적의 위치 : %d 칸입니다.\n",enemy);
+
+printf("적이: %d번째 칸으로 이동합니다.\n",enemy);
+
+}
+if(enemy ==10)
+{printf("적의 위치 : %d 칸입니다.\n",enemy);
+
+printf("적이: %d 번째 칸으로 이동합니다.\n",enemy);
+}
+
+if(enemy >=11 && Player >=11)
+{
+	printf("둘이 동시에 도착하였습니다... draw 게임");
+	break;
+}
+
+if(Player >=11)
+{
+	printf("Player 의 승입니다 !\n");
+	printf("현재 Player 의 칸 : %d\n ",Player);
+	printf("현재 상대방 의 칸 : %d\n ",enemy);
+	break; 
+}
+else if(enemy >=11)
+{
+	printf("상대방의 승리입니다 !\n");
+	printf("현재 상대방의 칸 :%d  현재 플레이어의 칸: %d\n",enemy,Player);
+	break;
+	
+}
+
+}while(1);
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}
