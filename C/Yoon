@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+
+int i;
+
+printf("1년 부터 2019년까지 윤년인지 아닌지를  알아봅니다.\n");
+
+
+
+for (i=1; i<=2019; i++)
+{
+
+if(i%4==0 && i%100!=0 || i%400==0 )
+	{printf ("%6d 년",i);
+	printf("윤년입니다.");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+	return 0;
+}
