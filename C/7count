@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+int main(int argc, char *argv[]) {
+ 
+ int i,j,lan;
+ printf("두수를 입력해주세요",i,j);
+ 
+ scanf_s("%d",&i);
+ scanf_s("%d",&j);
+ 
+ 
+ for(i=lan;i<=j;i++ )
+ 
+ {
+  
+  if(i % 10 == 7)
+  {
+   
+  
+  }
+  
+  else
+  printf("7을제외 남는 숫자는 %d\n",i);
+  
+ 
+ }
+ 
+ return 0;
+}
