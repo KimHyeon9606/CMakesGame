@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+int stu[10],i,j,sub[13],t;
+float a;
+int l[6][16]	,c=0;
+
+
+srand(time(NULL));
+
+
+for(i=1;i<=10;i++)
+{
+	
+	scanf("%d",&stu[i]);
+	printf(" \n %d \n ",stu[i]); 
+	printf("*학생* *총점*  *평균*   *학점* \n");
+	t = 0;
+	for(j=1;j<=13;j++)
+	
+	{
+	 sub[j] = rand () % 100;
+	 
+	  
+	  t += sub[j];
+	
+	}
+	
+	a = t/13;
+	
+	printf("%5d %7d    %0.1f ",stu[i],t,a); 
+	
+	
+	if(a >= 90)
+	printf("  A학점입니다 \n");
+	else if(a >= 80 )
+	printf("  B학점입니다 \n");
+	else if(a >= 70)
+	printf("  C학점입니다 \n");
+	else if(a >= 60 )
+	printf("  D학점입니다 \n");
+	
+	else
+	printf("  F 낙제입니다 ");
+	
+	
+	
+	
+	
+	
+	printf("\n");
+	
+	
+}
+
+
+
+
+
+
+
+	return 0;
+}
