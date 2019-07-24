@@ -1,0 +1,45 @@
+#include <wiringPi.h>
+#include <stdio.h>
+#define LED 0
+#define LED1 2
+#define LED2 3
+#define LED3 23
+#define LED4 24
+#define LED5 25
+
+int main (void)
+{
+	if(wiringPiSetup() == -1)
+	{
+		printf("setup wringPi falled!");
+		return 1;
+	}
+
+	pinMode(LED, OUTPUT);
+	pinMode(LED1,OUTPUT);
+	pinMode(LED2,OUTPUT);
+	pinMode(LED3,OUTPUT);
+	pinMode(LED4,OUTPUT);
+	pinMode(LED5,OUTPUT);
+	while(1) {
+		digitalWrite(LED1,HIGH);
+		digitalWrite(LED,HIGH);
+	printf("don't move");
+		delay(1500);
+		digital(Write(LED1,LOW);
+		digitalWrite(LED,LOW);
+		digitalWrite(LED2,HIGH);
+		digitalWrite(LED3,HIGH);
+		delay(1500);
+	printf("gogo");
+		digitalWrite(LED4,HIGH);
+		delay(1500);
+		digitalWrite(LED4,LOW);
+		delay(1500);
+
+	printf("wait");
+		delay(500);
+}
+		
+	return 0;
+}
