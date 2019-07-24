@@ -1,0 +1,48 @@
+#include <wiringPi.h>
+#include <stdio.h>
+#define CAR_RED 0
+#define CAR_GREEN 2
+#define CAR_YELLO 3
+#define GREEN 24
+#define RED 25
+
+int main (void){
+
+ 	int i;
+
+	if(wiringPiSetup() == -1){
+		printf("Setup wiringPi falled!");
+		return 1;
+		}
+
+		pinMode(CAR_RED, OUTPUT);
+		pinMode(CAR_YELLO, OUTPUT);
+		pinMode(CAR_GREEN, OUTPUT);
+		pinMode(RED, OUTPUT);
+		pinMode(GREEN, OUTPUT);
+
+
+	
+	while(1)
+	{
+	
+	digitalWrite(CAR_GREEN, HIGH);
+	digitalWrite(RED, HIGH);
+	printf("Don't Move");
+	delay(5000);
+	digitalWrite(CAR_GREEN, LOW);
+	digitalWrite(CAR_YELLO, HIGH);
+	printf("car plese wait");
+	delay(1000);
+	digitalWrite(CAR_RED, HIGH);
+	digitalWrite(CAR_YELLO, LOW);
+	delay(500);
+	digitalWrite(RED, LOW);
+	digitalWrite(GREEN, HIGH);
+	delay(5000);
+	digitalWrite(CAR_RED, LOW);
+	digitalWrite(GREEN,LOW);
+	delay(1000);
+}
+return 0;
+}	
