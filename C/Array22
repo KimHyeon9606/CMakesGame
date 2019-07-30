@@ -1,0 +1,187 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+/*	
+	srand(time(NULL));
+	
+	int n;
+	int y,i;
+	
+	
+
+	n = rand () % 50 + 51;
+	
+	printf("두수사이의 컴퓨터가 생성한숫자맞추기\n");
+	i=0;
+	do {
+	scanf("%d",&y);
+
+	if(n < y)
+
+	{
+	printf("더 작습니다.\n");
+	i++;
+	}
+	if(y < n)
+
+	{
+	printf("더 큽니다.\n");
+	i++;
+	}
+
+	if(y == n)
+	{printf("정답입니다 컴퓨터가 정한숫자 %d \n",n);
+	i++;	
+	break;
+	}
+	}while(1) ;	
+	printf("%d 횟수만큼 맞추셨습니다.\n",i);
+	
+	
+	if(i <= 5)
+	printf("고수인정합니다");
+	
+	else if(i <= 7)
+	printf("적당히 맞추셧네요");
+	
+	else 
+	printf("분발하세요 ㅠㅠ");	
+	
+	
+	
+	
+	
+	*/
+	
+/*	int a,b,c,d;
+	
+	
+	scanf("%d",&a);
+	scanf("%d",&b);
+	
+	
+	printf("두수 사이의 값 ");
+	
+	if(b>a) {
+	 for(c = a+1; c < b; c++)
+	 {
+	 	d += c;
+	 	
+	 	printf ("%5d",c);
+	 	if (c+1 == b)
+	 	printf("   =    ");
+	 	else
+	 	printf("   +    ");
+	 }
+
+	d--;}
+	
+	
+	if(a > b )
+	{
+	for(c = a; c > b; c--)
+	 {
+	 	d += c;
+	 	
+	 	printf ("%5d",c);
+	 	if (c+1 == b)
+	 	printf( "    =    ");
+	 	else
+	 	printf("    +     ");
+	 }
+	 
+	
+	d--;
+	}
+	
+	printf("%d",d);
+	
+*/	
+	
+/*	int n1, n2, s=0, i,p;
+	scanf_s("%d",&n1);
+	scanf_s("%d",&n2);
+	printf("\n");
+	
+	if (n1>n2)
+	p = n1 , n1 = n2, n2= p;
+	 
+	for (i=n1; i<=n2; i++)
+	{
+		s+= i;
+		printf("%d  ",i);
+		
+	}
+	
+	printf("=  %d\n",s);
+	
+	
+	*/
+	
+	
+	int a[10] = {'0','1','2','3','4','5','6','7'}
+	,
+	
+		 i, j, k, x = 100;
+
+
+	srand(time(NULL));
+
+	printf("숫자열 입력 : ");
+	scanf_s("%d", &i);
+
+
+	while (x >= 1)
+	{
+		j = i / x;
+		k = i % x;
+		printf("%s", a[j]);
+		x /= 10;
+		i = k;
+
+	}
+
+	printf("\n");
+	
+	
+	
+/*	srand(time(NULL));
+	
+	printf("현재 컴퓨터 입력된수 : ");
+	for(i=0;i<=9;i++)
+	{
+		a[i] = rand() % 50 + 51;
+		printf("%5d",a[i])
+	}
+	
+	
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}
