@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	
+	
+	int a[9],b,pa,i;
+	srand(time(NULL));
+	
+	
+	printf("패리티 비트 \n");
+	
+	
+	for(i=0;i<=7;i++)
+	{
+	a[i] = rand () % 1 + 1;
+	
+	}	
+	
+	
+	
+	
+	
+	for(i=1;i<=8;i++)
+	{
+		if(a[i] % 2 == 0)
+		b++
+		
+				
+	}
+	
+	if(b % 2 == 0)
+	 pa++;
+	 
+
+
+/*int d,m,n,c=0 , dd,p , x=10000000;
+
+scanf_s("%d", &d);
+
+dd= d;
+
+do
+{
+	m=d/x;
+	n=d%x;
+	if (m==1) c++;
+	d=n;
+	x/=10;
+	}while (n != 0);	
+	
+	p=dd*10;
+	if(c % 2 == 0)
+	p+=1;
+	printf("\ndata : %d, parity : %d\n",dd,p);
+	
+	
+	
+	*/
+	return 0;
+}
